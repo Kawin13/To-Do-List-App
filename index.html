@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A clean, modern To-Do List application with local storage persistence." />
+    <title>Taskflow — To-Do List</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Google Fonts: Space Grotesk (display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ===================== APP SHELL ===================== -->
+    <div class="app-wrapper">
+
+      <!-- Background decorative blobs -->
+      <div class="bg-blob blob-1" aria-hidden="true"></div>
+      <div class="bg-blob blob-2" aria-hidden="true"></div>
+
+      <!-- ========== HEADER ========== -->
+      <header class="app-header">
+        <div class="logo">
+          <span class="logo-icon" aria-hidden="true">✦</span>
+          <span class="logo-text">Taskflow</span>
+        </div>
+        <p class="header-tagline">Stay focused. Ship it.</p>
+      </header>
+
+      <!-- ========== MAIN CARD ========== -->
+      <main class="app-card" role="main">
+
+        <!-- ---- Input Row ---- -->
+        <section class="input-section" aria-label="Add a new task">
+          <div class="input-row">
+            <input
+              type="text"
+              id="task-input"
+              class="task-input"
+              placeholder="What needs doing?"
+              maxlength="200"
+              aria-label="New task description"
+              autocomplete="off"
+            />
+            <button id="add-btn" class="btn btn-add" aria-label="Add task">
+              <span class="btn-icon" aria-hidden="true">+</span>
+              <span class="btn-label">Add</span>
+            </button>
+          </div>
+          <!-- Validation message -->
+          <p id="input-error" class="input-error" role="alert" aria-live="polite"></p>
+        </section>
+
+        <!-- ---- Stats Bar ---- -->
+        <section class="stats-bar" aria-label="Task statistics">
+          <span id="tasks-remaining" class="stat-count">0 tasks left</span>
+          <button id="clear-completed-btn" class="btn btn-ghost" aria-label="Clear all completed tasks">
+            Clear completed
+          </button>
+        </section>
+
+        <!-- ---- Filter Tabs ---- -->
+        <nav class="filter-nav" aria-label="Filter tasks">
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            aria-pressed="true"
+            aria-label="Show all tasks"
+          >All</button>
+          <button
+            class="filter-btn"
+            data-filter="active"
+            aria-pressed="false"
+            aria-label="Show active tasks"
+          >Active</button>
+          <button
+            class="filter-btn"
+            data-filter="completed"
+            aria-pressed="false"
+            aria-label="Show completed tasks"
+          >Completed</button>
+        </nav>
+
+        <!-- ---- Task List ---- -->
+        <section class="task-list-section" aria-label="Task list">
+          <ul
+            id="task-list"
+            class="task-list"
+            role="list"
+            aria-label="Tasks"
+          >
+            <!-- Tasks are injected here by app.js -->
+          </ul>
+
+          <!-- Empty state (shown when no tasks match filter) -->
+          <div id="empty-state" class="empty-state" aria-live="polite" hidden>
+            <span class="empty-icon" aria-hidden="true">◎</span>
+            <p class="empty-title">Nothing here yet.</p>
+            <p class="empty-sub">Add a task above to get started.</p>
+          </div>
+        </section>
+
+      </main><!-- /app-card -->
+
+      <footer class="app-footer">
+        <p>Stay focused. Ship it.</p>
+      </footer>
+
+    </div><!-- /app-wrapper -->
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
